@@ -4,6 +4,7 @@ Zendesk QA - Gustavo
 # Customer Service Review System Data Model
 
 This repository contains the data model for a customer service review system. The data model is designed to store and manage information about conversations, payments, external tickets, reviews (both manual and automated), review ratings, root causes, teams, reviewers, reviewees, comments, and scorecards.
+Part A of this task is also available on Google Docs: https://docs.google.com/document/d/1WBgR2TY3ji0t_wgR_-KIut5P0kLvnbEIsr2kQDDfyzA/edit?usp=sharing
 
 ## Table of Contents
 - [Schema Overview](#schema-overview)
