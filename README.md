@@ -21,6 +21,9 @@ This repository contains the data model for a customer service review system. Th
   - [Scorecards](#scorecards)
 - [Relationships](#relationships)
 - [How to Use](#how-to-use)
+- [Looker Model: LookML File](#looker-model-lookml-file)  
+- [Airflow DAG](#airflow-dag)  
+- [SQL Tasks (Part A)](#sql-tasks-part-a)  
 
 ## Schema Overview
 
@@ -219,4 +222,4 @@ Stores information about scorecards used in reviews.
 
 1. **Clone the Repository**: Clone this repository to your local machine using:
    ```sh
-   git clone [<repository_url>](https://github.com/gustavorod009/gustavo_zendesk)
+   git clone https://github.com/gustavorod009/gustavo_zendesk
