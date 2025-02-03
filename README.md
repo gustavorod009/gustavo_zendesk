@@ -175,4 +175,48 @@ Stores information about reviewees who are reviewed in both manual and automated
 | reviewee_id          | INT64    | Primary key for external ID                      |
 | reviewee_name        | STRING   | Name of the reviewee                             |
 | reviewee_email       | STRING   | Email of the reviewee                            |
-| reviewee_role        | STRING   | Role of the reviewee
+| reviewee_role        | STRING   | Role of the reviewee                             |
+| PRIMARY KEY          | (reviewee_internal_id, reviewee_id)                         |
+
+### Comments
+Stores information about comments made on reviews.
+
+| Attribute         | DataType  | Description                            |
+|-------------------|-----------|----------------------------------------|
+| comment_id        | INT64     | Primary key, unique identifier for the comment |
+| comment_text      | STRING    | Text of the comment                    |
+| comment_author_id | INT64     | Foreign key referencing `users.user_id`|
+| comment_created_at| TIMESTAMP | Timestamp when the comment was created |
+
+### Scorecards
+Stores information about scorecards used in reviews.
+
+| Attribute               | DataType  | Description                                      |
+|-------------------------|-----------|--------------------------------------------------|
+| scorecard_id            | INT64     | Primary key, unique identifier for the scorecard |
+| scorecard_tag           | STRING    | Tag associated with the scorecard                |
+| score                   | FLOAT64   | Score associated with the scorecard              |
+| scorecard_name          | STRING    | Name of the scorecard                            |
+| scorecard_description   | STRING    | Description of the scorecard                     |
+
+## Relationships
+
+- `conversations.assignee_id` references `teams.assignee_id`
+- `conversations.payment_id` references `payments.payment_id`
+- `conversations.external_ticket_id` references `external_tickets.external_ticket_id`
+- `reviews.conversation_created_at` references `conversations.conversation_created_at`
+- `reviews.conversation_created_date` references `conversations.conversation_created_at_date`
+- `reviews.team_id` references `teams.team_id`
+- `reviews.reviewer_id` references `reviewers.reviewer_id`
+- `reviews.reviewee_internal_id` references `reviewees.reviewee_internal_id`
+- `reviews.reviewee_id` references `reviewees.reviewee_id`
+- `reviews.comment_id` references `comments.comment_id`
+- `reviews.scorecard_id` references `scorecards.scorecard_id`
+- `review_ratings.review_id` references `reviews.review_id`
+- `rating_root_causes.rating_id` references `review_ratings.rating_id`
+
+## How to Use
+
+1. **Clone the Repository**: Clone this repository to your local machine using:
+   ```sh
+   git clone [<repository_url>](https://github.com/gustavorod009/gustavo_zendesk)
